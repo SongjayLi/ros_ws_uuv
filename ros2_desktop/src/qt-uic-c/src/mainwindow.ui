@@ -14,17 +14,17 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton_1">
+   <widget class="QPushButton" name="pushButton_start">
     <property name="geometry">
      <rect>
       <x>120</x>
       <y>120</y>
-      <width>80</width>
+      <width>101</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>offboard start</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
@@ -40,17 +40,17 @@
      <string>PushButton</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_stop">
     <property name="geometry">
      <rect>
       <x>120</x>
       <y>180</y>
-      <width>80</width>
+      <width>101</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>offboard stop</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_throttle">
@@ -280,9 +280,9 @@
     </property>
    </widget>
    <zorder>label_picture_rov</zorder>
-   <zorder>pushButton_1</zorder>
+   <zorder>pushButton_start</zorder>
    <zorder>pushButton_2</zorder>
-   <zorder>pushButton_3</zorder>
+   <zorder>pushButton_stop</zorder>
    <zorder>label_throttle</zorder>
    <zorder>label_yaw</zorder>
    <zorder>label_pitch</zorder>
