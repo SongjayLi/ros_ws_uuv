@@ -1,6 +1,7 @@
 #include "rclcpp/rclcpp.hpp"
 //#include "px4_msgs/msg/vehicle_attitude.hpp"
 #include "px4_msgs/msg/sensor_combined.hpp"
+#include "px4_msgs/msg/vehicle_attitude.hpp"
 //#include "redisclient/redisasyncclient.h"
 #include <hiredis/hiredis.h>
 //1.导入消息类型
@@ -14,10 +15,10 @@ class RedisWrite : public rclcpp::Node//继承了节点类
 {
 private:
 //2.创建回调函数
-     void sensor_combine_callback(const px4_msgs::msg::SensorCombined::SharedPtr msg) const {
+    void sensor_combine_callback(const px4_msgs::msg::SensorCombined::SharedPtr msg) const {
         //使用类型下的共享指针进行参数传递
 //4.编写回调函数
-        std::string command = "HSET vehicle_attitude " +
+        std::string command = "ZADD sensor_combined " +
                               std::to_string(msg->timestamp) + " "+ 
                               std::to_string(msg->gyro_rad[0]) + ","+ 
                               std::to_string(msg->gyro_rad[1]) + ","+ 
@@ -25,6 +26,14 @@ private:
                               std::to_string(msg->accelerometer_m_s2[0]) + ","+ 
                               std::to_string(msg->accelerometer_m_s2[1]) + ","+
                               std::to_string(msg->accelerometer_m_s2[2]);
+        //std::string command = "HSET sensor_combined " +
+        //                      std::to_string(msg->timestamp) + " "+ 
+        //                      std::to_string(msg->gyro_rad[0]) + ","+ 
+        //                      std::to_string(msg->gyro_rad[1]) + ","+ 
+        //                      std::to_string(msg->gyro_rad[2]) + ","+ 
+        //                      std::to_string(msg->accelerometer_m_s2[0]) + ","+ 
+        //                      std::to_string(msg->accelerometer_m_s2[1]) + ","+
+        //                      std::to_string(msg->accelerometer_m_s2[2]);
         //std::cout<<command;
         redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         if (reply == nullptr) {
@@ -42,8 +51,26 @@ private:
         //RCLCPP_INFO(this->get_logger(), "RedisWrite节点启动");
      }
 
+    void vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg){
+        redisReply *reply;
+        std::string command;
+        command = "HSET vehicle_attitude w " + std::to_string(msg->q[0]);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+        command = "HSET vehicle_attitude x " + std::to_string(msg->q[1]);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+        command = "HSET vehicle_attitude y " + std::to_string(msg->q[2]);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+        command = "HSET vehicle_attitude z " + std::to_string(msg->q[3]);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+    }
+
      //3.声明订阅者和发布者
     rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr SensorCombined_sub_;
+    rclcpp::Subscription<px4_msgs::msg::VehicleAttitude>::SharedPtr VehicleAttitude_sub_;
     //模板类，传入订阅参数的参数类型，使用共享指针
     redisContext* context_;
     //void vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg) const
@@ -62,6 +89,11 @@ public:
             "/fmu/out/sensor_combined",//订阅的消息名称
             qos,//qs和队列长度
             std::bind(&RedisWrite::sensor_combine_callback,this,_1)//传入回调函数，使用bind函数将成员函数转换为回调函数（回调函数名称，回调函数所属的对象，出入参数占位符）
+        );
+        VehicleAttitude_sub_ = this->create_subscription<px4_msgs::msg::VehicleAttitude>(
+            "/fmu/out/vehicle_attitude",
+            qos,
+            std::bind(&RedisWrite::vehicle_attitude_callback,this,_1)
         );
         
         context_ = redisConnect("127.0.0.1", 6379);
