@@ -30,8 +30,9 @@ private:
 
     void ActuatorMotors_callback(const px4_msgs::msg::ActuatorMotors::SharedPtr msg);
 
+    void publish_manual_control_setpoint(uint8_t data_source, float roll, float pitch, float yaw, float throttle, bool sticks_moving);
     void publish_offboard_control_mode();
-    void publish_vehicle_command(uint16_t command, float param1, float param2);
+    void publish_vehicle_command(uint16_t command, float param1 = 0.0, float param2 = 0.0);
 
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr Joy_sub_;
     rclcpp::Subscription<px4_msgs::msg::ActuatorMotors>::SharedPtr ActuatorMotors_sub_;
@@ -42,9 +43,14 @@ private:
 	rclcpp::Publisher<px4_msgs::msg::VehicleCommand>::SharedPtr vehicle_command_pub_;
 
     rclcpp::TimerBase::SharedPtr timer_manual_control_setpoint;
+    rclcpp::TimerBase::SharedPtr timer_offboard_control_mode;
 
     std::shared_ptr<MainWindow> m_MainWindows;
 
+    void arm();//使用命令解锁机器人
+	void disarm();//使用命令取消解锁机器人
+
+    uint8_t m_offboard_setpoint_counter = 0;
 
 public:
     _Float32 m_Ctrl_input[8] = {0,0,0,0,0,0,0,0};
@@ -56,6 +62,8 @@ public:
     ~joy_ctrl() override{
         //delete m_MainWindows;
     };
+    void start_offboard_control();
+    void stop_offboard_control();
 };
 
 #endif

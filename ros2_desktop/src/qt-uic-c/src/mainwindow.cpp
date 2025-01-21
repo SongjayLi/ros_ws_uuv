@@ -9,7 +9,8 @@ MainWindow::MainWindow(QWidget *parent , joy_ctrl *joy_ctrl)
 {
     ui->setupUi(this);
     
-    connect(ui->pushButton_1,&QPushButton::clicked,this,&MainWindow::PushButton_clicked);
+    connect(ui->pushButton_start,&QPushButton::clicked,this,&MainWindow::PushButton_clicked_start);
+    connect(ui->pushButton_stop,&QPushButton::clicked,this,&MainWindow::PushButton_clicked_stop);
     //connect(m_joy,&joy_ctrl::Update_Show,this,&MainWindow::Update_num);
 }
 
@@ -18,14 +19,21 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::PushButton_clicked()
+void MainWindow::PushButton_clicked_start()
 {
-    this->close();
+    m_joy_ctrl->start_offboard_control();
+    //this->close();
+}
+
+void MainWindow::PushButton_clicked_stop()
+{
+    m_joy_ctrl->stop_offboard_control();
+    //this->close();
 }
 
 void MainWindow::Update_input_num(_Float32* num)
 {
-    ui->label_throttle->setNum((num[1]+1)/2);
+    ui->label_throttle->setNum(num[1]);
     ui->label_yaw->setNum(-num[0]);
     ui->label_pitch->setNum(num[4]);
     ui->label_roll->setNum(-num[3]);

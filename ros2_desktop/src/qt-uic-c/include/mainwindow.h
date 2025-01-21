@@ -27,8 +27,8 @@ public:
     void init_first();
 
 public slots:
-    void PushButton_clicked();
-    
+    void PushButton_clicked_start();
+    void PushButton_clicked_stop();
 
 
 private:
