@@ -17,15 +17,26 @@ void joy_ctrl::joy_ctrl_callback(const sensor_msgs::msg::Joy::SharedPtr msg)
     m_MainWindows->Update_input_num(m_Ctrl_input);
 }
 
+/**
+ * @brief Callback function for manual control setpoint timer.
+ * 
+ * This function is called periodically to publish manual control setpoints.
+ * It checks if the sample time has changed since the last callback. If it has,
+ * it publishes the current control inputs. If not, it publishes a default setpoint.
+ */
 void joy_ctrl::timer_callback_manual_control_setpoint()
 {
+    // Check if the sample time has changed since the last callback
     if(m_sample_time == m_sample_time_old){
+        // If the sample time has not changed, publish a default setpoint
         //std::fill(std::begin(m_Ctrl_input), std::end(m_Ctrl_input), 0);
         publish_manual_control_setpoint(2,0,0,0,0,false);
     }
     else{
+        // If the sample time has changed, publish the current control inputs
         publish_manual_control_setpoint(2, -m_Ctrl_input[3], m_Ctrl_input[4], -m_Ctrl_input[0], m_Ctrl_input[1], m_sticks_moving);
     }
+    // Update the old sample time with the current sample time
     m_sample_time_old = m_sample_time;
     //auto m_ManualControlSetpoint = px4_msgs::msg::ManualControlSetpoint();
     //m_ManualControlSetpoint.timestamp = std::chrono::time_point_cast<std::chrono::microseconds>(std::chrono::steady_clock::now()).time_since_epoch().count();
