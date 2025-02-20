@@ -34,15 +34,79 @@ void MainWindow::PushButton_clicked_stop()
 
 void MainWindow::onTimerOut()
 {
-    static int count = 0;
-    if(count > X_AXIS_MAX_X)
-    {
-        m_x_series->remove(0);
-        m_x_chart->axisX()->setMin(count - X_AXIS_MAX_X);
-        m_x_chart->axisX()->setMax(count);                    // 更新X轴范围
+    //static int count = 0;
+    static float count_max[3] = {0,0,0};
+    static float count_min[3] = {0,0,0};
+    QVector<DataWithTimestamp>* list = &(m_joy_ctrl->m_list_att);
+    int listLength = list->length();
+    // 遍历前 listLength 个元素
+    for (int i = 0; i < listLength; ++i) {
+        DataWithTimestamp data = (*list)[i];
+        // 假设 DataWithTimestamp 有三个参数 x, y, z
+        float values[3] = {data.getData1(), data.getData2(), data.getData3()};
+        // 更新最大最小值
+        for (int j = 0; j < 3; ++j) {
+            if (values[j] > count_max[j]) {
+                count_max[j] = values[j];
+            }
+            if (values[j] < count_min[j]) {
+                count_min[j] = values[j];
+            }
+        }
     }
-    m_x_series->append(QPointF(count, rand() % int(X_AXIS_MAX_Y)));  // 更新显示（随机生成10以内的一个数）
-    count++;
+
+    double max_time = (*list)[listLength-1].getTimeInSeconds();
+    double min_time = max_time-10;
+    if(max_time>10 && m_x_series->count()>0){
+        while(m_x_series->at(0).x()< max_time-10){
+            m_x_series->remove(0);
+        }
+        min_time = m_x_series->at(0).x();
+    }
+    m_x_axisX->setMin(min_time);
+    m_x_axisX->setMax(max_time);
+    m_x_axisY->setMin(count_min[0]-1);
+    m_x_axisY->setMax(count_max[0]+1);
+    m_y_axisX->setMin(min_time);
+    m_y_axisX->setMax(max_time);
+    m_y_axisY->setMin(count_min[1]-1);
+    m_y_axisY->setMax(count_max[1]+1);
+    m_z_axisX->setMin(min_time);
+    m_z_axisX->setMax(max_time);
+    m_z_axisY->setMin(count_min[2]-1);
+    m_z_axisY->setMax(count_max[2]+1);
+
+    for (int i = 0; i < listLength; ++i) {
+        m_x_series->append(QPointF((*list)[0].getTimeInSeconds(), (*list)[0].getData1()));
+        m_y_series->append(QPointF((*list)[0].getTimeInSeconds(), (*list)[0].getData2()));
+        m_z_series->append(QPointF((*list)[0].getTimeInSeconds(), (*list)[0].getData3()));
+        list->erase(list->begin());
+    }
+
+    for (int i = 0; i < m_x_series->count(); ++i) {
+        float value = m_x_series->at(i).y();
+        if (value > count_max[0]) {
+            count_max[0] = value;
+        }
+        if (value < count_min[0]) {
+            count_min[0] = value;
+        }
+        value = m_y_series->at(i).y();
+        if (value > count_max[1]) {
+            count_max[1] = value;
+        }
+        if (value < count_min[1]) {
+            count_min[1] = value;
+        }
+        value = m_z_series->at(i).y();
+        if (value > count_max[2]) {
+            count_max[2] = value;
+        }
+        if (value < count_min[2]) {
+            count_min[2] = value;
+        }
+    }
+  
 }
 
 void MainWindow::_init_ui()

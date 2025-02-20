@@ -32,12 +32,6 @@ class joy_ctrl:public rclcpp::Node
 {
 private:
 
-    QVector<DataWithTimestamp> m_list_pos;
-    QVector<DataWithTimestamp> m_list_vel_b;
-    QVector<DataWithTimestamp> m_list_att;
-    QVector<DataWithTimestamp> m_list_ang_vel;
-    matrix::Quaternionf m_now_q;
-
     void joy_ctrl_callback(const sensor_msgs::msg::Joy::SharedPtr msg);
 
     void timer_callback_manual_control_setpoint();
@@ -76,6 +70,15 @@ private:
     uint8_t m_offboard_setpoint_counter = 0;
 
 public:
+
+    QVector<DataWithTimestamp> m_list_pos;
+    QVector<DataWithTimestamp> m_list_vel_b;
+    QVector<DataWithTimestamp> m_list_vel_n;
+    QVector<DataWithTimestamp> m_list_att;
+    QVector<DataWithTimestamp> m_list_att_q;
+    QVector<DataWithTimestamp> m_list_ang_vel;
+    matrix::Quaternionf m_q_now;
+
     _Float32 m_Ctrl_input[8] = {0,0,0,0,0,0,0,0};
     _Float32 m_Ctrl_input_old[8] = {0,0,0,0,0,0,0,0};
     uint32_t m_sample_time;
