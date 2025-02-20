@@ -1,0 +1,22 @@
+[ 20%] Automatic MOC and UIC for target qt_c_node
+[ 20%] Built target qt_c_node_autogen
+Consolidate compiler generated dependencies of target qt_c_node
+[ 40%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[ 60%] Linking CXX executable qt_c_node
+[100%] Built target qt_c_node
+-- Install configuration: "Debug"
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/package_run_dependencies/desktop_qt
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/parent_prefix_path/desktop_qt
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/ament_prefix_path.sh
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/ament_prefix_path.dsv
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/path.sh
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/path.dsv
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.bash
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.sh
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.zsh
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.dsv
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/package.dsv
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/packages/desktop_qt
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/cmake/desktop_qtConfig.cmake
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/cmake/desktop_qtConfig-version.cmake
+-- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/package.xml

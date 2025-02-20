@@ -1,0 +1,24 @@
+[0.012s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[0.078s] [ 16%] Automatic MOC and UIC for target qt_c_node
+[0.109s] 
+[0.109s] AutoUic subprocess error
+[0.109s] ------------------------
+[0.110s] The uic process failed to compile
+[0.110s]   "SRC:/src/mainwindow.ui"
+[0.110s] into
+[0.110s]   "BIN:/qt_c_node_autogen/include/ui_mainwindow.h"
+[0.110s] included by
+[0.110s]   "SRC:/src/mainwindow.cpp"
+[0.110s] 
+[0.110s] Command
+[0.110s] -------
+[0.110s] /usr/lib/qt5/bin/uic -o /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt/qt_c_node_autogen/include/ui_mainwindow.h /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/mainwindow.ui
+[0.110s] 
+[0.110s] Output
+[0.110s] ------
+[0.110s] /usr/lib/qt5/bin/uic: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+[0.110s] 
+[0.291s] gmake[2]: *** [CMakeFiles/qt_c_node_autogen.dir/build.make:71: CMakeFiles/qt_c_node_autogen] Error 1
+[0.291s] gmake[1]: *** [CMakeFiles/Makefile2:164: CMakeFiles/qt_c_node_autogen.dir/all] Error 2
+[0.291s] gmake: *** [Makefile:146: all] Error 2
+[0.293s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '2': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8

@@ -1,0 +1,5 @@
+[ 20%] Automatic MOC and UIC for target qt_c_node
+[ 20%] Built target qt_c_node_autogen
+Consolidate compiler generated dependencies of target qt_c_node
+[ 60%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[ 60%] Building CXX object CMakeFiles/qt_c_node.dir/src/ros_joy.cpp.o

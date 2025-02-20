@@ -1,0 +1,84 @@
+[0.012s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com -- -j8 -l8
+[0.068s] Consolidate compiler generated dependencies of target vehicle_gps_position_listener
+[0.069s] Consolidate compiler generated dependencies of target offboard_control_srv
+[0.069s] Consolidate compiler generated dependencies of target offboard_control
+[0.069s] Consolidate compiler generated dependencies of target sensor_combined_listener
+[0.069s] Consolidate compiler generated dependencies of target debug_vect_advertiser
+[0.070s] Consolidate compiler generated dependencies of target frame_transforms
+[0.092s] [  8%] Built target ament_cmake_python_copy_px4_ros_com
+[0.092s] [ 16%] Built target vehicle_gps_position_listener
+[0.092s] [ 41%] Built target frame_transforms
+[0.092s] [ 50%] Built target sensor_combined_listener
+[0.093s] [ 75%] Built target offboard_control
+[0.093s] [ 83%] Built target debug_vect_advertiser
+[0.095s] [100%] Built target offboard_control_srv
+[0.354s] running egg_info
+[0.354s] writing px4_ros_com.egg-info/PKG-INFO
+[0.355s] writing dependency_links to px4_ros_com.egg-info/dependency_links.txt
+[0.355s] writing top-level names to px4_ros_com.egg-info/top_level.txt
+[0.357s] reading manifest file 'px4_ros_com.egg-info/SOURCES.txt'
+[0.358s] writing manifest file 'px4_ros_com.egg-info/SOURCES.txt'
+[0.387s] [100%] Built target ament_cmake_python_build_px4_ros_com_egg
+[0.399s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com -- -j8 -l8
+[0.400s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble /usr/bin/cmake --install /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com
+[0.409s] -- Install configuration: "Debug"
+[0.409s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/sensor_combined_listener
+[0.420s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/sensor_combined_listener" to ""
+[0.420s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/vehicle_gps_position_listener
+[0.431s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/vehicle_gps_position_listener" to ""
+[0.431s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/debug_vect_advertiser
+[0.434s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/debug_vect_advertiser" to ""
+[0.434s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/offboard_control
+[0.438s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/offboard_control" to ""
+[0.438s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/offboard_control_srv
+[0.443s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/offboard_control_srv" to ""
+[0.443s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/library_path.sh
+[0.443s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/library_path.dsv
+[0.444s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/include/px4_ros_com
+[0.444s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/include/px4_ros_com/frame_transforms.h
+[0.444s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/libframe_transforms.so
+[0.457s] -- Set runtime path of "/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/libframe_transforms.so" to ""
+[0.457s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//launch
+[0.457s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//launch/sensor_combined_listener.launch.py
+[0.458s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//launch/offboard_control_launch.yaml
+[0.458s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//test
+[0.458s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//test/__init__.py
+[0.458s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//test/test_output.py
+[0.459s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//test/test_input.py
+[0.459s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com//test/pipeline_io_test.py
+[0.459s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/pythonpath.sh
+[0.459s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/pythonpath.dsv
+[0.459s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com-0.1.0-py3.10.egg-info
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com-0.1.0-py3.10.egg-info/top_level.txt
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com-0.1.0-py3.10.egg-info/SOURCES.txt
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com-0.1.0-py3.10.egg-info/dependency_links.txt
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com-0.1.0-py3.10.egg-info/PKG-INFO
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com
+[0.460s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com/module_to_import.py
+[0.461s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com/__init__.py
+[0.496s] Listing '/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com'...
+[0.496s] Compiling '/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com/__init__.py'...
+[0.497s] Compiling '/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/local/lib/python3.10/dist-packages/px4_ros_com/module_to_import.py'...
+[0.501s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib/px4_ros_com/offboard_control.py
+[0.501s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/ament_index/resource_index/package_run_dependencies/px4_ros_com
+[0.502s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/ament_index/resource_index/parent_prefix_path/px4_ros_com
+[0.502s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/ament_prefix_path.sh
+[0.502s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/ament_prefix_path.dsv
+[0.502s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/path.sh
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/environment/path.dsv
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/local_setup.bash
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/local_setup.sh
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/local_setup.zsh
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/local_setup.dsv
+[0.503s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/package.dsv
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/ament_index/resource_index/packages/px4_ros_com
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/export_frame_transformsExport.cmake
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/export_frame_transformsExport-debug.cmake
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/ament_cmake_export_targets-extras.cmake
+[0.504s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.505s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/ament_cmake_export_libraries-extras.cmake
+[0.505s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/px4_ros_comConfig.cmake
+[0.505s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/cmake/px4_ros_comConfig-version.cmake
+[0.505s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/share/px4_ros_com/package.xml
+[0.507s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble /usr/bin/cmake --install /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com

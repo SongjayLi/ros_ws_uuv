@@ -1,0 +1,10 @@
+
+AutoGen error
+-------------
+Info error in info file
+"/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt/CMakeFiles/qt_c_node_autogen.dir/AutogenInfo.json":
+The header file "SRC:/src/mainwindow.h" does not exist.
+
+gmake[2]: *** [CMakeFiles/qt_c_node_autogen.dir/build.make:71: CMakeFiles/qt_c_node_autogen] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:164: CMakeFiles/qt_c_node_autogen.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

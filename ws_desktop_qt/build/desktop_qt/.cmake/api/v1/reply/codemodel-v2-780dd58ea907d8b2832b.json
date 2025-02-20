@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-da57d1ada5c445d492d3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "desktop_qt",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "desktop_qt_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-desktop_qt_uninstall-Debug-4bb45e0bdca37706b8e6.json",
+					"name" : "desktop_qt_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "qt_c_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-qt_c_node-Debug-c4b4efc07000f8f8e301.json",
+					"name" : "qt_c_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "qt_c_node_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-qt_c_node_autogen-Debug-a5a7ab816c4a8cf694f7.json",
+					"name" : "qt_c_node_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Debug-626b400e9cc650b19d90.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt",
+		"source" : "/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

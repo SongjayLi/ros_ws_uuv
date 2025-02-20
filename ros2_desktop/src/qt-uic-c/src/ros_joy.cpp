@@ -81,6 +81,33 @@ void joy_ctrl::ActuatorMotors_callback(const px4_msgs::msg::ActuatorMotors::Shar
     m_MainWindows->Update_actuator(msg->control);
 }
 
+void joy_ctrl::sensor_combine_callback(const px4_msgs::msg::SensorCombined::SharedPtr msg)
+{
+}
+
+void joy_ctrl::vehicle_local_position_callback(const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg)
+{
+    m_list_pos.push_back(DataWithTimestamp(msg->x,msg->y,msg->z,0,msg->timestamp));
+    matrix::Vector3f v_n(msg->vx,msg->vy,msg->vz);
+    m_list_vel_n.push_back(DataWithTimestamp(v_n(0),v_n(1),v_n(2),0,msg->timestamp));
+    matrix::Vector3f v_b = m_q_now.rotateVectorInverse(v_n);
+    m_list_vel_b.push_back(DataWithTimestamp(v_b(0),v_b(1),v_b(2),0,msg->timestamp));
+}
+
+void joy_ctrl::vehicle_angular_velocity_callback(const px4_msgs::msg::VehicleAngularVelocity::SharedPtr msg)
+{
+    m_list_ang_vel.push_back(DataWithTimestamp(msg->xyz[0],msg->xyz[1],msg->xyz[2],0,msg->timestamp));
+}
+
+void joy_ctrl::vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg)
+{
+    m_list_att_q.push_back(DataWithTimestamp(msg->q[0],msg->q[1],msg->q[2],msg->q[3],msg->timestamp));
+    matrix::Quaternionf q(msg->q.data());
+    matrix::Eulerf euler(q);
+    m_list_att.push_back(DataWithTimestamp(euler(0),euler(1),euler(2),0,msg->timestamp));
+    m_q_now = q;
+}
+
 void joy_ctrl::publish_manual_control_setpoint(uint8_t data_source, float roll, float pitch, float yaw, float throttle, bool sticks_moving)
 {
     px4_msgs::msg::ManualControlSetpoint msg{};
@@ -168,12 +195,32 @@ joy_ctrl::joy_ctrl(std::string name) : Node(name)
         10
     );
     
-
+    SensorCombined_sub_ = this->create_subscription<px4_msgs::msg::SensorCombined>(
+        "/fmu/out/sensor_combined",//订阅的消息名称
+        qos,//qs和队列长度
+        std::bind(&joy_ctrl::sensor_combine_callback,this,_1)//传入回调函数，使用bind函数将成员函数转换为回调函数（回调函数名称，回调函数所属的对象，出入参数占位符）
+    );
+    VehicleAttitude_sub_ = this->create_subscription<px4_msgs::msg::VehicleAttitude>(
+        "/fmu/out/vehicle_attitude",
+        qos,
+        std::bind(&joy_ctrl::vehicle_attitude_callback,this,_1)
+    );
+    VehicleLocalPosition_sub_ = this->create_subscription<px4_msgs::msg::VehicleLocalPosition>(
+        "/fmu/out/vehicle_local_position",
+        qos,
+        std::bind(&joy_ctrl::vehicle_local_position_callback,this,_1)
+    );
+    VehicleAngularVelocity_sub_ = this->create_subscription<px4_msgs::msg::VehicleAngularVelocity>(
+        "/fmu/out/vehicle_angular_velocity",
+        qos,
+        std::bind(&joy_ctrl::vehicle_angular_velocity_callback,this,_1)
+    );
     ActuatorMotors_sub_ = this->create_subscription<px4_msgs::msg::ActuatorMotors>(
         "/fmu/out/actuator_motors",
         qos,
         std::bind(&joy_ctrl::ActuatorMotors_callback,this,_1)
     );
+
     timer_manual_control_setpoint = this->create_wall_timer(50ms, std::bind(&joy_ctrl::timer_callback_manual_control_setpoint,this));
     m_MainWindows = std::make_shared<MainWindow>(nullptr, this);
     m_MainWindows->init_first();

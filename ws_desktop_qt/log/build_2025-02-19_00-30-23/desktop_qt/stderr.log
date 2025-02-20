@@ -1,0 +1,59 @@
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/main.cpp:1:10: fatal error: mainwindow.h: No such file or directory
+    1 | #include "mainwindow.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:90: CMakeFiles/qt_c_node.dir/src/main.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In member function ‘void joy_ctrl::joy_ctrl_callback(sensor_msgs::msg::Joy_<std::allocator<void> >::SharedPtr)’:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:17:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   17 |     m_MainWindows->Update_input_num(m_Ctrl_input);
+      |                  ^~
+In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   21 | class MainWindow; // 前置声明
+      |       ^~~~~~~~~~
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In member function ‘void joy_ctrl::ActuatorMotors_callback(px4_msgs::msg::ActuatorMotors_<std::allocator<void> >::SharedPtr)’:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:81:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   81 |     m_MainWindows->Update_actuator(msg->control);
+      |                  ^~
+In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   21 | class MainWindow; // 前置声明
+      |       ^~~~~~~~~~
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In constructor ‘joy_ctrl::joy_ctrl(std::string)’:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:179:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+  179 |     m_MainWindows->init_first();
+      |                  ^~
+In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   21 | class MainWindow; // 前置声明
+      |       ^~~~~~~~~~
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:180:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+  180 |     m_MainWindows->show();
+      |                  ^~
+In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+   21 | class MainWindow; // 前置声明
+      |       ^~~~~~~~~~
+In file included from /usr/include/c++/11/bits/shared_ptr_base.h:60,
+                 from /usr/include/c++/11/bits/shared_ptr.h:53,
+                 from /usr/include/c++/11/memory:77,
+                 from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153,
+                 from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:5,
+                 from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+/usr/include/c++/11/ext/aligned_buffer.h: In instantiation of ‘struct __gnu_cxx::__aligned_buffer<MainWindow>’:
+/usr/include/c++/11/bits/shared_ptr_base.h:506:35:   required from ‘class std::_Sp_counted_ptr_inplace<MainWindow, std::allocator<MainWindow>, __gnu_cxx::_S_atomic>::_Impl’
+/usr/include/c++/11/bits/shared_ptr_base.h:567:13:   required from ‘class std::_Sp_counted_ptr_inplace<MainWindow, std::allocator<MainWindow>, __gnu_cxx::_S_atomic>’
+/usr/include/c++/11/bits/shared_ptr_base.h:647:43:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = MainWindow; _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/11/bits/shared_ptr_base.h:1342:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; _Tp = MainWindow; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+/usr/include/c++/11/bits/shared_ptr.h:409:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; _Tp = MainWindow]’
+/usr/include/c++/11/bits/shared_ptr.h:862:14:   required from ‘std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = MainWindow; _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}]’
+/usr/include/c++/11/bits/shared_ptr.h:878:39:   required from ‘std::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = MainWindow; _Args = {std::nullptr_t, joy_ctrl*}]’
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:178:49:   required from here
+/usr/include/c++/11/ext/aligned_buffer.h:91:28: error: invalid application of ‘sizeof’ to incomplete type ‘MainWindow’
+   91 |     : std::aligned_storage<sizeof(_Tp), __alignof__(_Tp)>
+      |                            ^~~~~~~~~~~
+/usr/include/c++/11/ext/aligned_buffer.h:91:28: error: invalid application of ‘sizeof’ to incomplete type ‘MainWindow’
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:104: CMakeFiles/qt_c_node.dir/src/ros_joy.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

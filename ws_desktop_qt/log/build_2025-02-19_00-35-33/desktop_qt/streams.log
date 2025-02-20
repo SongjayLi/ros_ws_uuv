@@ -1,0 +1,24 @@
+[0.012s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[0.079s] [ 20%] Automatic MOC and UIC for target qt_c_node
+[0.103s] [ 20%] Built target qt_c_node_autogen
+[0.134s] [ 40%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[4.578s] [ 60%] Linking CXX executable qt_c_node
+[5.767s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `_dl_make_stack_executable@GLIBC_PRIVATE'
+[5.768s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlclose@GLIBC_PRIVATE'
+[5.769s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlopen_mode@GLIBC_PRIVATE'
+[5.770s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_siglongjmp@GLIBC_PRIVATE'
+[5.771s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_longjmp@GLIBC_PRIVATE'
+[5.783s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_allocate_rtsig_private@GLIBC_PRIVATE'
+[5.783s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_thread_freeres@GLIBC_PRIVATE'
+[5.783s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_addr@GLIBC_PRIVATE'
+[5.783s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_pthread_init@GLIBC_PRIVATE'
+[5.784s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_current_sigrtmin_private@GLIBC_PRIVATE'
+[5.786s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_sym@GLIBC_PRIVATE'
+[5.789s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlsym@GLIBC_PRIVATE'
+[5.793s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_current_sigrtmax_private@GLIBC_PRIVATE'
+[5.795s] /usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_vsym@GLIBC_PRIVATE'
+[5.825s] collect2: error: ld returned 1 exit status
+[5.827s] gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:218: qt_c_node] Error 1
+[5.827s] gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+[5.828s] gmake: *** [Makefile:146: all] Error 2
+[5.830s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '2': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8

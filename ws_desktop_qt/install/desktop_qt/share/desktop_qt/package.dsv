@@ -1,0 +1,8 @@
+source;share/desktop_qt/hook/cmake_prefix_path.ps1
+source;share/desktop_qt/hook/cmake_prefix_path.dsv
+source;share/desktop_qt/hook/cmake_prefix_path.sh
+source;share/desktop_qt/local_setup.bash
+source;share/desktop_qt/local_setup.dsv
+source;share/desktop_qt/local_setup.ps1
+source;share/desktop_qt/local_setup.sh
+source;share/desktop_qt/local_setup.zsh

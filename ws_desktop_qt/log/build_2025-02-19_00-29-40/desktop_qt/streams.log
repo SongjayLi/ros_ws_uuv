@@ -1,0 +1,9 @@
+[0.013s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[0.037s] CMake Error at CMakeLists.txt:49:
+[0.037s]   Parse error.  Function missing ending ")".  End of file reached.
+[0.037s] 
+[0.037s] 
+[0.037s] -- Configuring incomplete, errors occurred!
+[0.037s] See also "/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt/CMakeFiles/CMakeOutput.log".
+[0.038s] gmake: *** [Makefile:362: cmake_check_build_system] Error 1
+[0.040s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '2': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8

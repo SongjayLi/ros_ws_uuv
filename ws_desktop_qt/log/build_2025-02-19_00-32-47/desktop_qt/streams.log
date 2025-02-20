@@ -1,0 +1,26 @@
+[0.012s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[0.080s] [ 20%] Automatic MOC and UIC for target qt_c_node
+[0.104s] [ 20%] Built target qt_c_node_autogen
+[0.125s] Consolidate compiler generated dependencies of target qt_c_node
+[0.141s] [ 40%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[3.751s] [ 60%] Linking CXX executable qt_c_node
+[4.531s] [100%] Built target qt_c_node
+[4.543s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '0': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[4.544s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --install /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt
+[4.553s] -- Install configuration: "Debug"
+[4.553s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/package_run_dependencies/desktop_qt
+[4.554s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/parent_prefix_path/desktop_qt
+[4.554s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/ament_prefix_path.sh
+[4.554s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/ament_prefix_path.dsv
+[4.554s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/path.sh
+[4.554s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/environment/path.dsv
+[4.555s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.bash
+[4.555s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.sh
+[4.555s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.zsh
+[4.555s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/local_setup.dsv
+[4.555s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/package.dsv
+[4.556s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/ament_index/resource_index/packages/desktop_qt
+[4.556s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/cmake/desktop_qtConfig.cmake
+[4.556s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/cmake/desktop_qtConfig-version.cmake
+[4.556s] -- Installing: /home/uuv/Development/rov-ros2/ws_desktop_qt/install/desktop_qt/share/desktop_qt/package.xml
+[4.559s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '0': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --install /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt

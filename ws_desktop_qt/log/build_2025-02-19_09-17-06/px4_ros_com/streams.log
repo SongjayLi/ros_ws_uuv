@@ -1,0 +1,55 @@
+[0.013s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com': AMENT_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/opt/ros/humble CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /bin/cmake /home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_ros_com -DCMAKE_INSTALL_PREFIX=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com
+[0.031s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.174s] -- Found builtin_interfaces: 1.2.1 (/opt/ros/humble/share/builtin_interfaces/cmake)
+[0.220s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.223s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.230s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.241s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.255s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.268s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.271s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.307s] -- Found px4_msgs: 2.0.1 (/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/share/px4_msgs/cmake)
+[0.323s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.354s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.356s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.484s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.528s] -- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.548s] -- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)
+[0.556s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.639s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.644s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.644s] -- Configured cppcheck include dirs: /home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_ros_com/include;$<BUILD_INTERFACE:/home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_ros_com/include/px4_ros_com>
+[0.645s] -- Configured cppcheck exclude dirs and/or files: 
+[0.650s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.650s] -- Configured cpplint exclude dirs and/or files: 
+[0.650s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.652s] -- Added test 'lint_cmake' to check CMake code style
+[0.653s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.657s] -- Added test 'uncrustify' to check C / C++ code style
+[0.657s] -- Configured uncrustify additional arguments: 
+[0.658s] -- Added test 'xmllint' to check XML markup files
+[0.661s] -- Configuring done
+[0.710s] -- Generating done
+[0.724s] -- Build files have been written to: /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com
+[0.733s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com' returned '0': AMENT_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/opt/ros/humble CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /bin/cmake /home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_ros_com -DCMAKE_INSTALL_PREFIX=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com
+[0.737s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com': AMENT_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/opt/ros/humble CONDA_PROMPT_MODIFIER=(base) LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_ros_com -- -j8 -l8
+[0.788s] [35m[1mConsolidate compiler generated dependencies of target frame_transforms[0m
+[0.788s] [35m[1mConsolidate compiler generated dependencies of target sensor_combined_listener[0m
+[0.789s] [35m[1mConsolidate compiler generated dependencies of target offboard_control_srv[0m
+[0.790s] [35m[1mConsolidate compiler generated dependencies of target vehicle_gps_position_listener[0m
+[0.793s] [35m[1mConsolidate compiler generated dependencies of target debug_vect_advertiser[0m
+[0.794s] [35m[1mConsolidate compiler generated dependencies of target offboard_control[0m
+[0.817s] [ 16%] Built target frame_transforms
+[0.820s] [ 33%] Built target sensor_combined_listener
+[0.823s] [ 50%] Built target offboard_control_srv
+[0.824s] [ 66%] Built target debug_vect_advertiser
+[0.826s] [ 66%] Built target ament_cmake_python_copy_px4_ros_com
+[0.829s] [ 83%] Built target vehicle_gps_position_listener
+[0.831s] [100%] Built target offboard_control
+[1.096s] running egg_info
+[1.097s] writing px4_ros_com.egg-info/PKG-INFO
+[1.097s] writing dependency_links to px4_ros_com.egg-info/dependency_links.txt
+[1.097s] writing top-level names to px4_ros_com.egg-info/top_level.txt
+[1.099s] reading manifest file 'px4_ros_com.egg-info/SOURCES.txt'
+[1.100s] writing manifest file 'px4_ros_com.egg-info/SOURCES.txt'
+[1.129s] [100%] Built target ament_cmake_python_build_px4_ros_com_egg

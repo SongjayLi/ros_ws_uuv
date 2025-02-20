@@ -1,0 +1,13 @@
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/main.cpp:1:10: fatal error: mainwindow.h: No such file or directory
+    1 | #include "mainwindow.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:90: CMakeFiles/qt_c_node.dir/src/main.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:2:10: fatal error: mainwindow.h: No such file or directory
+    2 | #include "mainwindow.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:104: CMakeFiles/qt_c_node.dir/src/ros_joy.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

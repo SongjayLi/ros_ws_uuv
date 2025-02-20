@@ -1,0 +1,5 @@
+CMake Error at CMakeLists.txt:49:
+  Parse error.  Function missing ending ")".  End of file reached.
+
+
+gmake: *** [Makefile:362: cmake_check_build_system] Error 1
