@@ -44,12 +44,19 @@ public:
 public slots:
     void PushButton_clicked_start();
     void PushButton_clicked_stop();
+    void PushButton_clicked_pos();
+    void PushButton_clicked_att();
+    void PushButton_clicked_vel_n();
+    void PushButton_clicked_vel_b();
+    void PUshButton_clicked_vel();
     void onTimerOut();
 
 
 private:
     //joy_ctrl *m_joy;
     joy_ctrl *m_joy_ctrl;
+    QVector<DataWithTimestamp>* m_list{&(m_joy_ctrl->m_list_att)};
+    bool is_first = true;
     Ui::mainWindow *ui;
     QTimer *m_timer;
     void _init_ui();
