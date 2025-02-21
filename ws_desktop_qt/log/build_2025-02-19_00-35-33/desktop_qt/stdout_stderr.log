@@ -1,0 +1,22 @@
+[ 20%] Automatic MOC and UIC for target qt_c_node
+[ 20%] Built target qt_c_node_autogen
+[ 40%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[ 60%] Linking CXX executable qt_c_node
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `_dl_make_stack_executable@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlclose@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlopen_mode@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_siglongjmp@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_longjmp@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_allocate_rtsig_private@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_thread_freeres@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_addr@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_pthread_init@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_current_sigrtmin_private@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_sym@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_dlsym@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined reference to `__libc_current_sigrtmax_private@GLIBC_PRIVATE'
+/usr/bin/ld: /snap/core20/current/lib/x86_64-linux-gnu/libdl.so.2: undefined reference to `_dl_vsym@GLIBC_PRIVATE'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:218: qt_c_node] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

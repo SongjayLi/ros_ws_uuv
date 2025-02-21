@@ -1,0 +1,31 @@
+running egg_info
+creating ../../build/qt-uic-py/qt_uic_py.egg-info
+writing ../../build/qt-uic-py/qt_uic_py.egg-info/PKG-INFO
+writing dependency_links to ../../build/qt-uic-py/qt_uic_py.egg-info/dependency_links.txt
+writing entry points to ../../build/qt-uic-py/qt_uic_py.egg-info/entry_points.txt
+writing requirements to ../../build/qt-uic-py/qt_uic_py.egg-info/requires.txt
+writing top-level names to ../../build/qt-uic-py/qt_uic_py.egg-info/top_level.txt
+writing manifest file '../../build/qt-uic-py/qt_uic_py.egg-info/SOURCES.txt'
+reading manifest file '../../build/qt-uic-py/qt_uic_py.egg-info/SOURCES.txt'
+writing manifest file '../../build/qt-uic-py/qt_uic_py.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/build
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/build/lib
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/build/lib/qt-uic-py
+copying qt-uic-py/__init__.py -> /home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/build/lib/qt-uic-py
+running install
+running install_lib
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/lib/python3.10/site-packages/qt-uic-py
+copying /home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/build/lib/qt-uic-py/__init__.py -> /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/lib/python3.10/site-packages/qt-uic-py
+byte-compiling /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/lib/python3.10/site-packages/qt-uic-py/__init__.py to __init__.cpython-310.pyc
+running install_data
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/share/ament_index
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/share/ament_index/resource_index
+creating /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/share/ament_index/resource_index/packages
+copying resource/qt-uic-py -> /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/share/ament_index/resource_index/packages
+copying package.xml -> /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/share/qt-uic-py
+running install_egg_info
+Copying ../../build/qt-uic-py/qt_uic_py.egg-info to /home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py/lib/python3.10/site-packages/qt_uic_py-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/qt-uic-py/install.log'

@@ -1,0 +1,33 @@
+[0.011s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs': /usr/bin/cmake /home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_msgs -G CodeBlocks - Unix Makefiles -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs
+[0.245s] -- The C compiler identification is GNU 11.4.0
+[0.245s] -- The CXX compiler identification is GNU 11.4.0
+[0.245s] -- Detecting C compiler ABI info
+[0.284s] -- Detecting C compiler ABI info - done
+[0.292s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.293s] -- Detecting C compile features
+[0.293s] -- Detecting C compile features - done
+[0.297s] -- Detecting CXX compiler ABI info
+[0.379s] -- Detecting CXX compiler ABI info - done
+[0.387s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.388s] -- Detecting CXX compile features
+[0.388s] -- Detecting CXX compile features - done
+[0.400s] CMake Error at CMakeLists.txt:11 (find_package):
+[0.400s]   By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project
+[0.400s]   has asked CMake to find a package configuration file provided by
+[0.400s]   "ament_cmake", but CMake did not find one.
+[0.400s] 
+[0.400s]   Could not find a package configuration file provided by "ament_cmake" with
+[0.400s]   any of the following names:
+[0.400s] 
+[0.401s]     ament_cmakeConfig.cmake
+[0.401s]     ament_cmake-config.cmake
+[0.401s] 
+[0.401s]   Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set
+[0.401s]   "ament_cmake_DIR" to a directory containing one of the above files.  If
+[0.401s]   "ament_cmake" provides a separate development package or SDK, be sure it
+[0.401s]   has been installed.
+[0.401s] 
+[0.401s] 
+[0.401s] -- Configuring incomplete, errors occurred!
+[0.401s] See also "/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs/CMakeFiles/CMakeOutput.log".
+[0.404s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs' returned '1': /usr/bin/cmake /home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_msgs -G CodeBlocks - Unix Makefiles -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs

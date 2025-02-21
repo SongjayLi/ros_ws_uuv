@@ -24,11 +24,17 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+#find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+#find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(px4_msgs REQUIRED)
-#find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt5 COMPONENTS Charts REQUIRED)
 
+
+include_directories(
+  ./include
+  ${CMAKE_CURRENT_BINARY_DIR}/qt_c_node_autogen/include  # 关键调整！
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -44,19 +50,22 @@ endif()
 
 ament_package()
 
-FILE(GLOB HEAD_FILES "./include/*.h")
+FILE(GLOB HEAD_FILES "./include/*.h" "./include/matrix/*.h")
 FILE(GLOB SRC_FILES "./src/*.cpp")
 FILE(GLOB UI_FILES "./src/*.ui")
 
 add_executable(qt_c_node ${SRC_FILES} ${HEAD_FILES} ${UI_FILES})
 ament_target_dependencies(qt_c_node rclcpp std_msgs sensor_msgs px4_msgs)
 
-target_link_libraries(qt_c_node Qt5::Widgets)
+target_link_libraries(qt_c_node Qt5::Widgets Qt5::Charts)
 
 install(TARGETS
   qt_c_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
-include_directories(./include)
+include_directories(
+  ./include
+  ${CMAKE_CURRENT_BINARY_DIR}/qt_c_node_autogen/include  # 关键！匹配生成路径
+)
 #include_directories(/opt/ros/humble/include)

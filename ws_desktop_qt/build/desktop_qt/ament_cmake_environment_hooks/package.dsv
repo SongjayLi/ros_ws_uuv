@@ -1,0 +1,4 @@
+source;share/desktop_qt/local_setup.bash
+source;share/desktop_qt/local_setup.dsv
+source;share/desktop_qt/local_setup.sh
+source;share/desktop_qt/local_setup.zsh

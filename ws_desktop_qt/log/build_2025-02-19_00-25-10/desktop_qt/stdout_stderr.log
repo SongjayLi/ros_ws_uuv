@@ -1,0 +1,22 @@
+[ 16%] Automatic MOC and UIC for target qt_c_node
+
+AutoUic subprocess error
+------------------------
+The uic process failed to compile
+  "SRC:/src/mainwindow.ui"
+into
+  "BIN:/qt_c_node_autogen/include/ui_mainwindow.h"
+included by
+  "SRC:/src/mainwindow.cpp"
+
+Command
+-------
+/usr/lib/qt5/bin/uic -o /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt/qt_c_node_autogen/include/ui_mainwindow.h /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/mainwindow.ui
+
+Output
+------
+/usr/lib/qt5/bin/uic: symbol lookup error: /snap/core20/current/lib/x86_64-linux-gnu/libpthread.so.0: undefined symbol: __libc_pthread_init, version GLIBC_PRIVATE
+
+gmake[2]: *** [CMakeFiles/qt_c_node_autogen.dir/build.make:71: CMakeFiles/qt_c_node_autogen] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:164: CMakeFiles/qt_c_node_autogen.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

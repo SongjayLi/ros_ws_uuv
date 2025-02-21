@@ -1,0 +1,66 @@
+[0.011s] Invoking command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8
+[0.080s] [ 20%] Automatic MOC and UIC for target qt_c_node
+[0.104s] [ 20%] Built target qt_c_node_autogen
+[0.116s] Consolidate compiler generated dependencies of target qt_c_node
+[0.128s] [ 60%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+[0.128s] [ 60%] Building CXX object CMakeFiles/qt_c_node.dir/src/ros_joy.cpp.o
+[0.138s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/main.cpp:1:10: fatal error: mainwindow.h: No such file or directory
+[0.138s]     1 | #include "mainwindow.h"
+[0.139s]       |          ^~~~~~~~~~~~~~
+[0.139s] compilation terminated.
+[0.139s] gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:90: CMakeFiles/qt_c_node.dir/src/main.cpp.o] Error 1
+[0.139s] gmake[2]: *** Waiting for unfinished jobs....
+[2.692s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In member function ‘void joy_ctrl::joy_ctrl_callback(sensor_msgs::msg::Joy_<std::allocator<void> >::SharedPtr)’:
+[2.692s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:17:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.692s]    17 |     m_MainWindows->Update_input_num(m_Ctrl_input);
+[2.692s]       |                  ^~
+[2.692s] In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+[2.692s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.692s]    21 | class MainWindow; // 前置声明
+[2.692s]       |       ^~~~~~~~~~
+[2.694s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In member function ‘void joy_ctrl::ActuatorMotors_callback(px4_msgs::msg::ActuatorMotors_<std::allocator<void> >::SharedPtr)’:
+[2.694s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:81:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.694s]    81 |     m_MainWindows->Update_actuator(msg->control);
+[2.694s]       |                  ^~
+[2.694s] In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+[2.694s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.694s]    21 | class MainWindow; // 前置声明
+[2.694s]       |       ^~~~~~~~~~
+[2.715s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp: In constructor ‘joy_ctrl::joy_ctrl(std::string)’:
+[2.715s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:179:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.715s]   179 |     m_MainWindows->init_first();
+[2.715s]       |                  ^~
+[2.715s] In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+[2.715s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.715s]    21 | class MainWindow; // 前置声明
+[2.715s]       |       ^~~~~~~~~~
+[2.715s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:180:18: error: invalid use of incomplete type ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.716s]   180 |     m_MainWindows->show();
+[2.716s]       |                  ^~
+[2.716s] In file included from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+[2.716s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:21:7: note: forward declaration of ‘using element_type = class MainWindow’ {aka ‘class MainWindow’}
+[2.716s]    21 | class MainWindow; // 前置声明
+[2.716s]       |       ^~~~~~~~~~
+[3.564s] In file included from /usr/include/c++/11/bits/shared_ptr_base.h:60,
+[3.564s]                  from /usr/include/c++/11/bits/shared_ptr.h:53,
+[3.564s]                  from /usr/include/c++/11/memory:77,
+[3.564s]                  from /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153,
+[3.564s]                  from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/include/ros_joy.h:5,
+[3.564s]                  from /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:1:
+[3.564s] /usr/include/c++/11/ext/aligned_buffer.h: In instantiation of ‘struct __gnu_cxx::__aligned_buffer<MainWindow>’:
+[3.564s] /usr/include/c++/11/bits/shared_ptr_base.h:506:35:   required from ‘class std::_Sp_counted_ptr_inplace<MainWindow, std::allocator<MainWindow>, __gnu_cxx::_S_atomic>::_Impl’
+[3.564s] /usr/include/c++/11/bits/shared_ptr_base.h:567:13:   required from ‘class std::_Sp_counted_ptr_inplace<MainWindow, std::allocator<MainWindow>, __gnu_cxx::_S_atomic>’
+[3.564s] /usr/include/c++/11/bits/shared_ptr_base.h:647:43:   required from ‘std::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = MainWindow; _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[3.564s] /usr/include/c++/11/bits/shared_ptr_base.h:1342:14:   required from ‘std::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; _Tp = MainWindow; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]’
+[3.565s] /usr/include/c++/11/bits/shared_ptr.h:409:59:   required from ‘std::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}; _Tp = MainWindow]’
+[3.565s] /usr/include/c++/11/bits/shared_ptr.h:862:14:   required from ‘std::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = MainWindow; _Alloc = std::allocator<MainWindow>; _Args = {std::nullptr_t, joy_ctrl*}]’
+[3.565s] /usr/include/c++/11/bits/shared_ptr.h:878:39:   required from ‘std::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = MainWindow; _Args = {std::nullptr_t, joy_ctrl*}]’
+[3.565s] /home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/ros_joy.cpp:178:49:   required from here
+[3.565s] /usr/include/c++/11/ext/aligned_buffer.h:91:28: error: invalid application of ‘sizeof’ to incomplete type ‘MainWindow’
+[3.565s]    91 |     : std::aligned_storage<sizeof(_Tp), __alignof__(_Tp)>
+[3.565s]       |                            ^~~~~~~~~~~
+[3.565s] /usr/include/c++/11/ext/aligned_buffer.h:91:28: error: invalid application of ‘sizeof’ to incomplete type ‘MainWindow’
+[6.438s] gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:104: CMakeFiles/qt_c_node.dir/src/ros_joy.cpp.o] Error 1
+[6.438s] gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+[6.438s] gmake: *** [Makefile:146: all] Error 2
+[6.440s] Invoked command in '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt' returned '2': CMAKE_PREFIX_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/qt-uic-py:/opt/ros/humble LD_LIBRARY_PATH=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs/lib:/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_ros_com/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu /usr/bin/cmake --build /home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt -- -j8 -l8

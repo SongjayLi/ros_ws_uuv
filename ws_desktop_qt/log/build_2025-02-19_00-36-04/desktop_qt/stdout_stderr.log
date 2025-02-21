@@ -1,0 +1,7 @@
+CMake Error at CMakeLists.txt:55:
+  Parse error.  Expected a command name, got right paren with text ")".
+
+
+-- Configuring incomplete, errors occurred!
+See also "/home/uuv/Development/rov-ros2/ws_desktop_qt/build/desktop_qt/CMakeFiles/CMakeOutput.log".
+gmake: *** [Makefile:335: cmake_check_build_system] Error 1

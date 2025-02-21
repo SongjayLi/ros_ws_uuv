@@ -1,0 +1,11 @@
+[ 20%] Automatic MOC and UIC for target qt_c_node
+[ 20%] Built target qt_c_node_autogen
+Consolidate compiler generated dependencies of target qt_c_node
+[ 40%] Building CXX object CMakeFiles/qt_c_node.dir/src/main.cpp.o
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/main.cpp: In function ‘int main(int, char**)’:
+/home/uuv/Development/rov-ros2/ws_desktop_qt/src/desktop_qt/src/main.cpp:58:12: error: ‘result’ was not declared in this scope
+   58 |     return result;
+      |            ^~~~~~
+gmake[2]: *** [CMakeFiles/qt_c_node.dir/build.make:90: CMakeFiles/qt_c_node.dir/src/main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:138: CMakeFiles/qt_c_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

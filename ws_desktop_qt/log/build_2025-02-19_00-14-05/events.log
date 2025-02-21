@@ -1,0 +1,51 @@
+[0.000000] (-) TimerEvent: {}
+[0.000102] (px4_msgs) JobQueued: {'identifier': 'px4_msgs', 'dependencies': OrderedDict()}
+[0.000129] (qt-uic-py) JobQueued: {'identifier': 'qt-uic-py', 'dependencies': OrderedDict()}
+[0.000148] (desktop_qt) JobQueued: {'identifier': 'desktop_qt', 'dependencies': OrderedDict([('px4_msgs', '/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs')])}
+[0.000166] (px4_ros_com) JobQueued: {'identifier': 'px4_ros_com', 'dependencies': OrderedDict([('px4_msgs', '/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs')])}
+[0.000209] (px4_msgs) JobStarted: {'identifier': 'px4_msgs'}
+[0.004498] (qt-uic-py) JobStarted: {'identifier': 'qt-uic-py'}
+[0.009044] (px4_msgs) JobProgress: {'identifier': 'px4_msgs', 'progress': 'cmake'}
+[0.009419] (px4_msgs) Command: {'cmd': ['/usr/bin/cmake', '/home/uuv/Development/rov-ros2/ws_desktop_qt/src/px4_msgs', '-G', 'CodeBlocks - Unix Makefiles', '-DCMAKE_BUILD_TYPE=Debug', '-DCMAKE_INSTALL_PREFIX=/home/uuv/Development/rov-ros2/ws_desktop_qt/install/px4_msgs'], 'cwd': '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LANGUAGE', 'en_US:en'), ('LC_TIME', 'zh_CN.UTF-8'), ('SNAP_COMMON', '/var/snap/qtcreator-ros/common'), ('SNAP_INSTANCE_KEY', ''), ('USER', 'uuv'), ('XDG_SESSION_TYPE', 'x11'), ('LD_LIBRARY_PATH', '/snap/qtcreator-ros/116/lib:/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu'), ('SHLVL', '0'), ('SNAP_UID', '1000'), ('HOME', '/home/uuv'), ('SNAP_LIBRARY_PATH', '/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void'), ('DESKTOP_SESSION', 'ubuntu'), ('SNAP_USER_DATA', '/home/uuv/snap/qtcreator-ros/116'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/qtcreator-ros_qtcreator-ros.desktop'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'zh_CN.UTF-8'), ('MANAGERPID', '1910'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('SYSTEMD_EXEC_PID', '6470'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '44946'), ('SNAP_REVISION', '116'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'uuv'), ('JOURNAL_STREAM', '8:38631'), ('SNAP_CONTEXT', 'j8UQJ-YLAPA-PS6Ep89kRcjibsncka60FHB-TqtZe9ZfwVNIKIov'), ('SNAP_VERSION', '13.0.2'), ('XDG_SESSION_CLASS', 'user'), ('QSG_RHI_BACKEND', 'opengl'), ('TERM', 'xterm'), ('USERNAME', 'uuv'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('SNAP_INSTANCE_NAME', 'qtcreator-ros'), ('WINDOWPATH', '2'), ('PATH', '/opt/gcc-arm-none-eabi-9-2020-q2-update/bin:/home/uuv/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('INVOCATION_ID', '08f315136c174d6a8e051571194959a3'), ('PAPERSIZE', 'a4'), ('SESSION_MANAGER', 'local/dell-7577:@/tmp/.ICE-unix/6431,unix/dell-7577:/tmp/.ICE-unix/6431'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/qtcreator-ros_qtcreator-ros.desktop'), ('LC_ADDRESS', 'zh_CN.UTF-8'), ('SNAP_DATA', '/var/snap/qtcreator-ros/116'), ('XDG_MENU_PREFIX', 'gnome-'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'zh_CN.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XMODIFIERS', '@im=ibus'), ('SNAP_ARCH', 'amd64'), ('SNAP_COOKIE', 'j8UQJ-YLAPA-PS6Ep89kRcjibsncka60FHB-TqtZe9ZfwVNIKIov'), ('SNAP_USER_COMMON', '/home/uuv/snap/qtcreator-ros/common'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('LC_NAME', 'zh_CN.UTF-8'), ('SHELL', '/bin/bash'), ('GDMSESSION', 'ubuntu'), ('QT_ACCESSIBILITY', '1'), ('SNAP_REEXEC', ''), ('SNAP_NAME', 'qtcreator-ros'), ('LC_MEASUREMENT', 'zh_CN.UTF-8'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'zh_CN.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('LC_ALL', 'en_US.UTF-8'), ('PWD', '/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs'), ('QT_QPA_PLATFORM', 'wayland;xcb'), ('SNAP_REAL_HOME', '/home/uuv'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('LC_NUMERIC', 'zh_CN.UTF-8'), ('SNAP', '/snap/qtcreator-ros/116'), ('SNAP_EUID', '1000'), ('LC_PAPER', 'zh_CN.UTF-8'), ('COLCON', '1'), ('GTK_THEME', ':light'), ('LIBGL_DRIVERS_PATH', '/snap/qtcreator-ros/116/usr/lib/x86_64-linux-gnu/dri')]), 'shell': False}
+[0.099165] (-) TimerEvent: {}
+[0.199413] (-) TimerEvent: {}
+[0.244675] (px4_msgs) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.244867] (px4_msgs) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.244961] (px4_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.284505] (px4_msgs) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.292445] (px4_msgs) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.292851] (px4_msgs) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.293447] (px4_msgs) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.296754] (px4_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.299513] (-) TimerEvent: {}
+[0.379400] (px4_msgs) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.387446] (px4_msgs) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.387795] (px4_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.388334] (px4_msgs) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.399620] (-) TimerEvent: {}
+[0.400179] (px4_msgs) StderrLine: {'line': b'CMake Error at CMakeLists.txt:11 (find_package):\n'}
+[0.400301] (px4_msgs) StderrLine: {'line': b'  By not providing "Findament_cmake.cmake" in CMAKE_MODULE_PATH this project\n'}
+[0.400371] (px4_msgs) StderrLine: {'line': b'  has asked CMake to find a package configuration file provided by\n'}
+[0.400427] (px4_msgs) StderrLine: {'line': b'  "ament_cmake", but CMake did not find one.\n'}
+[0.400480] (px4_msgs) StderrLine: {'line': b'\n'}
+[0.400532] (px4_msgs) StderrLine: {'line': b'  Could not find a package configuration file provided by "ament_cmake" with\n'}
+[0.400585] (px4_msgs) StderrLine: {'line': b'  any of the following names:\n'}
+[0.400635] (px4_msgs) StderrLine: {'line': b'\n'}
+[0.400686] (px4_msgs) StderrLine: {'line': b'    ament_cmakeConfig.cmake\n'}
+[0.400737] (px4_msgs) StderrLine: {'line': b'    ament_cmake-config.cmake\n'}
+[0.400822] (px4_msgs) StderrLine: {'line': b'\n'}
+[0.400890] (px4_msgs) StderrLine: {'line': b'  Add the installation prefix of "ament_cmake" to CMAKE_PREFIX_PATH or set\n'}
+[0.400942] (px4_msgs) StderrLine: {'line': b'  "ament_cmake_DIR" to a directory containing one of the above files.  If\n'}
+[0.400994] (px4_msgs) StderrLine: {'line': b'  "ament_cmake" provides a separate development package or SDK, be sure it\n'}
+[0.401046] (px4_msgs) StderrLine: {'line': b'  has been installed.\n'}
+[0.401097] (px4_msgs) StderrLine: {'line': b'\n'}
+[0.401148] (px4_msgs) StderrLine: {'line': b'\n'}
+[0.401199] (px4_msgs) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[0.401257] (px4_msgs) StdoutLine: {'line': b'See also "/home/uuv/Development/rov-ros2/ws_desktop_qt/build/px4_msgs/CMakeFiles/CMakeOutput.log".\n'}
+[0.403938] (px4_msgs) CommandEnded: {'returncode': 1}
+[0.423678] (px4_msgs) JobEnded: {'identifier': 'px4_msgs', 'rc': 1}
+[0.499734] (-) TimerEvent: {}
+[0.537070] (qt-uic-py) JobEnded: {'identifier': 'qt-uic-py', 'rc': 'SIGINT'}
+[0.547585] (desktop_qt) JobSkipped: {'identifier': 'desktop_qt'}
+[0.547626] (px4_ros_com) JobSkipped: {'identifier': 'px4_ros_com'}
+[0.547644] (-) EventReactorShutdown: {}

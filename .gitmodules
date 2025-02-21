@@ -14,3 +14,7 @@
 	path = ros2_desktop/src/px4_ros_com
 	url = https://github.com/PX4/px4_ros_com.git
 	branch = main
+[submodule "ws_desktop_qt/src/px4_msgs"]
+	path = ws_desktop_qt/src/px4_msgs
+	url = https://github.com/PX4/px4_msgs.git
+	branch = release/1.15
