@@ -1,7 +1,10 @@
 #include "rclcpp/rclcpp.hpp"
-//#include "px4_msgs/msg/vehicle_attitude.hpp"
 #include "px4_msgs/msg/sensor_combined.hpp"
 #include "px4_msgs/msg/vehicle_attitude.hpp"
+#include "px4_msgs/msg/vehicle_local_position.hpp"
+#include "px4_msgs/msg/vehicle_angular_velocity.hpp"
+#include "px4_msgs/msg/actuator_motors.hpp"
+#include "px4_msgs/msg/battery_status.hpp"
 //#include "redisclient/redisasyncclient.h"
 #include <hiredis/hiredis.h>
 //1.导入消息类型
@@ -25,7 +28,7 @@ private:
                               std::to_string(msg->gyro_rad[2]) + ","+ 
                               std::to_string(msg->accelerometer_m_s2[0]) + ","+ 
                               std::to_string(msg->accelerometer_m_s2[1]) + ","+
-                              std::to_string(msg->accelerometer_m_s2[2]);
+                              std::to_string(msg->accelerometer_m_s2[2]) + ","+std::to_string(msg->timestamp);
         //std::string command = "HSET sensor_combined " +
         //                      std::to_string(msg->timestamp) + " "+ 
         //                      std::to_string(msg->gyro_rad[0]) + ","+ 
@@ -51,6 +54,27 @@ private:
         //RCLCPP_INFO(this->get_logger(), "RedisWrite节点启动");
      }
 
+    void vehicle_local_position_callback(const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg) const {
+        std::string command = "ZADD vehicle_local_position(pos_n) " + std::to_string(msg->timestamp) + " " + std::to_string(msg->x)+ ","+ std::to_string(msg->y)+ ","+ std::to_string(msg->z)+ ","+std::to_string(msg->timestamp);
+        redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+        command = "ZADD vehicle_local_position(vel_n) " + std::to_string(msg->timestamp) + " " + std::to_string(msg->vx)+ ","+ std::to_string(msg->vy)+ ","+ std::to_string(msg->vz)+ ","+std::to_string(msg->timestamp);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+    }
+
+    void vehicle_angular_velocity_callback(const px4_msgs::msg::VehicleAngularVelocity::SharedPtr msg) const {
+        std::string command = "ZADD vehicle_angular_velocity " + std::to_string(msg->timestamp) + " " + std::to_string(msg->xyz[0])+ ","+ std::to_string(msg->xyz[1])+ ","+ std::to_string(msg->xyz[2])+ ","+std::to_string(msg->timestamp);
+        redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+    }
+
+    void actuator_motors_callback(const px4_msgs::msg::ActuatorMotors::SharedPtr msg) const {
+        std::string command = "ZADD actuator_motors " + std::to_string(msg->timestamp) + " " + std::to_string(msg->control[0])+ ","+ std::to_string(msg->control[1])+ ","+ std::to_string(msg->control[2])+ ","+ std::to_string(msg->control[3])+ ","+ std::to_string(msg->control[4])+ ","+ std::to_string(msg->control[5])+ ","+ std::to_string(msg->timestamp);
+        redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+    }
+
     void vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg){
         redisReply *reply;
         std::string command;
@@ -66,11 +90,24 @@ private:
         command = "HSET vehicle_attitude z " + std::to_string(msg->q[3]);
         reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
+        command = "ZADD vehicle_attitude " + std::to_string(msg->timestamp) + " " + std::to_string(msg->q[0]) + "," + std::to_string(msg->q[1]) + "," + std::to_string(msg->q[2]) + "," + std::to_string(msg->q[3])+ ","+std::to_string(msg->timestamp);
+        reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
+    }
+
+    void battery_status_callback(const px4_msgs::msg::BatteryStatus::SharedPtr msg){
+        std::string command = "ZADD battery_status_V " + std::to_string(msg->timestamp) + " " + std::to_string(msg->voltage_v)+ ","+std::to_string(msg->timestamp);
+        redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
+        freeReplyObject(reply);
     }
 
      //3.声明订阅者和发布者
     rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr SensorCombined_sub_;
     rclcpp::Subscription<px4_msgs::msg::VehicleAttitude>::SharedPtr VehicleAttitude_sub_;
+    rclcpp::Subscription<px4_msgs::msg::VehicleLocalPosition>::SharedPtr VehicleLocalPosition_sub_;
+    rclcpp::Subscription<px4_msgs::msg::VehicleAngularVelocity>::SharedPtr VehicleAngularVelocity_sub_;
+    rclcpp::Subscription<px4_msgs::msg::ActuatorMotors>::SharedPtr ActuatorMotors_sub_;
+    rclcpp::Subscription<px4_msgs::msg::BatteryStatus>::SharedPtr BatteryStatus_sub_;
     //模板类，传入订阅参数的参数类型，使用共享指针
     redisContext* context_;
     //void vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg) const
@@ -94,6 +131,26 @@ public:
             "/fmu/out/vehicle_attitude",
             qos,
             std::bind(&RedisWrite::vehicle_attitude_callback,this,_1)
+        );
+        VehicleLocalPosition_sub_ = this->create_subscription<px4_msgs::msg::VehicleLocalPosition>(
+            "/fmu/out/vehicle_local_position",
+            qos,
+            std::bind(&RedisWrite::vehicle_local_position_callback,this,_1)
+        );
+        VehicleAngularVelocity_sub_ = this->create_subscription<px4_msgs::msg::VehicleAngularVelocity>(
+            "/fmu/out/vehicle_angular_velocity",
+            qos,
+            std::bind(&RedisWrite::vehicle_angular_velocity_callback,this,_1)
+        );
+        ActuatorMotors_sub_ = this->create_subscription<px4_msgs::msg::ActuatorMotors>(
+            "/fmu/out/actuator_motors",
+            qos,
+            std::bind(&RedisWrite::actuator_motors_callback,this,_1)
+        );
+        BatteryStatus_sub_ = this->create_subscription<px4_msgs::msg::BatteryStatus>(
+            "/fmu/out/battery_status",
+            qos,
+            std::bind(&RedisWrite::battery_status_callback,this,_1)
         );
         
         context_ = redisConnect("127.0.0.1", 6379);
