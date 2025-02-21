@@ -212,29 +212,36 @@ void MainWindow::onTimerOut()
     }
 
 
-
+    float max[3] = {0,0,0};
+    float min[3] = {0,0,0};
     for (int i = 0; i < m_x_series->count(); ++i) {
         float value = m_x_series->at(i).y();
-        if (value > count_max[0]) {
-            count_max[0] = value;
+        if (value > max[0]) {
+            max[0] = value;
         }
-        if (value < count_min[0]) {
-            count_min[0] = value;
+        if (value < min[0]) {
+            min[0] = value;
         }
         value = m_y_series->at(i).y();
-        if (value > count_max[1]) {
-            count_max[1] = value;
+        if (value > max[1]) {
+            max[1] = value;
         }
-        if (value < count_min[1]) {
-            count_min[1] = value;
+        if (value < min[1]) {
+            min[1] = value;
         }
         value = m_z_series->at(i).y();
-        if (value > count_max[2]) {
-            count_max[2] = value;
+        if (value > max[2]) {
+            max[2] = value;
         }
-        if (value < count_min[2]) {
-            count_min[2] = value;
+        if (value < min[2]) {
+            min[2] = value;
         }
+    }
+    for (int i = 0; i < 3; ++i) {
+        count_max[i] = max[i];
+    }
+    for (int i = 0; i < 3; ++i) {
+        count_min[i] = min[i];
     }
 
 }
