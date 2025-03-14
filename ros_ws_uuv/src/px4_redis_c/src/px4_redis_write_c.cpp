@@ -78,16 +78,16 @@ private:
     void vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::SharedPtr msg){
         redisReply *reply;
         std::string command;
-        command = "HSET vehicle_attitude w " + std::to_string(msg->q[0]);
+        command = "HSET Vehicle_attitude w " + std::to_string(msg->q[0]);
         reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
-        command = "HSET vehicle_attitude x " + std::to_string(msg->q[1]);
+        command = "HSET Vehicle_attitude x " + std::to_string(msg->q[1]);
         reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
-        command = "HSET vehicle_attitude y " + std::to_string(msg->q[2]);
+        command = "HSET Vehicle_attitude y " + std::to_string(msg->q[2]);
         reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
-        command = "HSET vehicle_attitude z " + std::to_string(msg->q[3]);
+        command = "HSET Vehicle_attitude z " + std::to_string(msg->q[3]);
         reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
         command = "ZADD vehicle_attitude " + std::to_string(msg->timestamp) + " " + std::to_string(msg->q[0]) + "," + std::to_string(msg->q[1]) + "," + std::to_string(msg->q[2]) + "," + std::to_string(msg->q[3])+ ","+std::to_string(msg->timestamp);
@@ -96,7 +96,7 @@ private:
     }
 
     void battery_status_callback(const px4_msgs::msg::BatteryStatus::SharedPtr msg){
-        std::string command = "ZADD battery_status_V " + std::to_string(msg->timestamp) + " " + std::to_string(msg->voltage_v)+ ","+std::to_string(msg->timestamp);
+        std::string command = "ZADD battery_status_V " + std::to_string(msg->timestamp) + " " + std::to_string(msg->voltage_filtered_v)+ ","+std::to_string(msg->timestamp);
         redisReply *reply = static_cast<redisReply*>(redisCommand(context_, command.c_str()));
         freeReplyObject(reply);
     }
