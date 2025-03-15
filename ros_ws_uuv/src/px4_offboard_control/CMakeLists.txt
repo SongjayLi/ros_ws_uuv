@@ -17,8 +17,12 @@ find_package(Eigen3 REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-include_directories(${EIGEN3_INCLUDE_DIRS})
-include_directories(include)
+include_directories(
+  ./include
+  ${EIGEN3_INCLUDE_DIRS}
+)
+
+add_definitions(${EIGEN_DEFINITIONS})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
@@ -32,14 +36,12 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
-ament_package()
+#add_executable(normal_ctrl_node src/normal_ctrl_node.cpp)
 
-#FILE(GLOB HEAD_FILES "./include/*.h" "./include/matrix/*.h")
-#FILE(GLOB SRC_FILES "./src/*.cpp")
+FILE(GLOB HEAD_FILES "./include/*.h")
+FILE(GLOB SRC_FILES "./src/*.cpp")
 
-#add_executable(qt_c_node ${SRC_FILES} ${HEAD_FILES} ${UI_FILES})
-
-add_executable(normal_ctrl_node src/normal_ctrl_node.cpp)
+add_executable(normal_ctrl_node ${SRC_FILES} ${HEAD_FILES})
 
 ament_target_dependencies(normal_ctrl_node rclcpp std_msgs sensor_msgs px4_msgs Eigen3)
 
@@ -48,5 +50,4 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-
-
+ament_package()

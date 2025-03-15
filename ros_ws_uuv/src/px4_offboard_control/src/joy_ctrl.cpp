@@ -1,4 +1,4 @@
-#include "joy_ctrl.hpp"
+#include "joy_ctrl.h"
 
 void joy_ctrl::Joy_callback(const sensor_msgs::msg::Joy::SharedPtr msg)
 {
@@ -11,6 +11,7 @@ void joy_ctrl::Joy_callback(const sensor_msgs::msg::Joy::SharedPtr msg)
     _ctrl_input[6] = msg->axes[6];
     _ctrl_input[7] = msg->axes[7];
     _input_update = true;
+    //RCLCPP_INFO(this->get_logger(), "更新按键值");
 }
 
 void joy_ctrl::BatteryStatus_callback(const px4_msgs::msg::BatteryStatus::SharedPtr msg)
@@ -20,21 +21,43 @@ void joy_ctrl::BatteryStatus_callback(const px4_msgs::msg::BatteryStatus::Shared
 
 void joy_ctrl::Timer_Control_callback()
 {
+    if(_input_update){
+        _input_update = false;
+        _T_max = 0.0067 * _battery_voltage * _battery_voltage + 0.4115* _battery_voltage - 0.4524;
+        _T_min = 0.0022 * _battery_voltage * _battery_voltage - 0.4984* _battery_voltage + 1.3815;
+        Eigen::Matrix<float, 6, 1> Vforce_input;
+        Vforce_input << 
+        _ctrl_input[4]*_x_max, _ctrl_input[5]*_y_max, -_ctrl_input[1]*_z_max, 0, _ctrl_input[4]*_x_max * 0.0849, _ctrl_input[0]*_yaw_max;
+        Eigen::Matrix<float, 6, 1> force_input = _power_dis.virtual2real_force(Vforce_input);
+        float max_force = force_input.maxCoeff();
+        float min_force = force_input.minCoeff();
+        // 检查是否有推力大于最大或小于最小
+        if (max_force > _T_max || min_force < _T_min) {
+            // 计算缩放因子
+            float scale = std::min(_T_max / max_force, (_T_min / min_force));
+            // 等比缩放所有值
+            force_input *= scale;
+        }
+        float pwm[6];
+        _power_dis.Vector2array(_power_dis.force2pwm(force_input, _battery_voltage, _T_min, _T_max),pwm);
+        Pub_ActuatorMotors(pwm[0],pwm[1],pwm[2],pwm[3],pwm[4],pwm[5]);
+    }
 }
 
 void joy_ctrl::Pub_ActuatorMotors(const float &x, const float &y, const float &z, const float &roll, const float &pitch, const float &yaw)
 {
+    px4_msgs::msg::ActuatorMotors msg;
+    msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
+    msg.timestamp_sample = this->get_clock()->now().nanoseconds() / 1000;
+    msg.control[0] = x;
+    msg.control[1] = y;
+    msg.control[2] = z;
+    msg.control[3] = roll;
+    msg.control[4] = pitch;
+    msg.control[5] = yaw;
+    msg.control[6] = 0;
+    msg.control[7] = 0;
+    ActuatorMotors_pub_->publish(msg);
 }
 
-joy_ctrl::joy_ctrl(std::string node_name): Node(node_name)
-{
-    rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
-    rclcpp::QoS qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
 
-    Joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>("joy", 10, std::bind(&joy_ctrl::Joy_callback, this, _1));
-    BatteryStatus_sub_ = this->create_subscription<px4_msgs::msg::BatteryStatus>("fmu/out/battery_status", qos, std::bind(&joy_ctrl::BatteryStatus_callback, this, _1));
-
-    ActuatorMotors_pub_ = this->create_publisher<px4_msgs::msg::ActuatorMotors>("fmu/in/actuator_motors", 10);
-
-    Timer_Control_ = this->create_wall_timer(50ms, std::bind(&joy_ctrl::Timer_Control_callback, this));
-}

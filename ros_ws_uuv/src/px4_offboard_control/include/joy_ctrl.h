@@ -2,8 +2,9 @@
 #define JOY_CTRL_HPP
 
 #include <chrono>
+#include <Eigen/Dense>
 
-#include "power_distribution.hpp"
+#include "power_distribution.h"
 
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joy.hpp"
@@ -21,6 +22,14 @@ class joy_ctrl:public rclcpp::Node
         float _battery_voltage{0.0f};
         float _ctrl_input[8]{0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f} ;
         bool _input_update{false};
+        float _T_min{0.0f};
+        float _T_max{0.0f};
+        float _x_max{6.0f};
+        float _y_max{6.0f};
+        float _z_max{6.0f};
+        float _roll_max{1.3f};
+        float _yaw_max{4.5f};
+        power_dis_UUV6 _power_dis;
     
         rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr Joy_sub_;
         rclcpp::Subscription<px4_msgs::msg::BatteryStatus>::SharedPtr BatteryStatus_sub_;
@@ -37,7 +46,17 @@ class joy_ctrl:public rclcpp::Node
         void Pub_ActuatorMotors(const float & x, const float & y, const float & z, const float & roll, const float & pitch, const float & yaw );
 
     public:
-        joy_ctrl(std::string node_name);
+        joy_ctrl(std::string node_name):Node(node_name){
+            rmw_qos_profile_t qos_profile = rmw_qos_profile_sensor_data;
+            rclcpp::QoS qos = rclcpp::QoS(rclcpp::QoSInitialization(qos_profile.history, 5), qos_profile);
+        
+            Joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>("joy", 10, std::bind(&joy_ctrl::Joy_callback, this, _1));
+            BatteryStatus_sub_ = this->create_subscription<px4_msgs::msg::BatteryStatus>("fmu/out/battery_status", qos, std::bind(&joy_ctrl::BatteryStatus_callback, this, _1));
+        
+            ActuatorMotors_pub_ = this->create_publisher<px4_msgs::msg::ActuatorMotors>("fmu/in/actuator_motors", 10);
+        
+            Timer_Control_ = this->create_wall_timer(50ms, std::bind(&joy_ctrl::Timer_Control_callback, this));
+        }
         ~joy_ctrl(){};
 };
 

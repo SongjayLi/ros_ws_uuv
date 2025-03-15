@@ -1,35 +1,21 @@
-#include "power_distribution.hpp"
+#include "power_distribution.h"
 
-power_dis_UUV6::power_dis_UUV6()
+Eigen::Matrix<float, 6, 1> power_dis_UUV6::virtual2real_force(const Eigen::Matrix<float, 6, 1> &virtual_input)
 {
-    _dis_matrix <<
-    0.707,   0.707,  -0.707,  -0.707,   0,       0,
-    -0.707,  0.707,  -0.707,   0.707,   0,       0,
-    0,       0,       0,       0,      -1,       1,
-    0.06,  -0.06,    0.06,   -0.06,  -0.111,  -0.111,
-    0.06,    0.06,   -0.06,   -0.06,    0,       0,
-    -0.1888, 0.1888,  0.1888, -0.1888,   0,       0;
-    if (_dis_matrix.rows() == _dis_matrix.cols()) {
-        // 方阵求逆
-        _dis_matrix_inv = _dis_matrix.inverse();
-    } else {
-        // 非方阵求伪逆
-        _dis_matrix_inv = _dis_matrix.completeOrthogonalDecomposition().pseudoInverse();
-    }
-}
-
-Eigen::Vector<float, 6> power_dis_UUV6::virtual2real_force(const Eigen::Vector<float, 6> &virtual_input)
-{
-    Eigen::Vector<float, 6> real_input;
+    Eigen::Matrix<float, 6, 1> real_input;
     real_input = _dis_matrix_inv * virtual_input;
     return real_input;
 }
 
-Eigen::Vector<float, 6> power_dis_UUV6::force2pwm(const Eigen::Vector<float, 6> &force_input, const float &battery_voltage)
+Eigen::Matrix<float, 6 ,1> power_dis_UUV6::force2pwm(const Eigen::Matrix<float, 6, 1> &force_input, const float &battery_voltage, const float &T_min, const float &T_max)
 {
-    Eigen::Vector<float, 6> pwm_output;
+    Eigen::Matrix<float, 6, 1> pwm_output;
+    //float T_min = 0.0022 * battery_voltage * battery_voltage - 0.4984* battery_voltage + 1.3815;
+    //float T_max = 0.0067 * battery_voltage * battery_voltage + 0.4115* battery_voltage - 0.4524;
     for (int i = 0; i < 6; ++i) {
         float T = force_input[i];
+        if (T > T_max) T = T_max;
+        if (T < T_min) T = T_min;
         float U = battery_voltage;
         float a = 0.0f, b = 0.0f, c = 0.0f;
 
@@ -52,30 +38,49 @@ Eigen::Vector<float, 6> power_dis_UUV6::force2pwm(const Eigen::Vector<float, 6> 
             float valid_pwm = 0.0f;
 
             if (T >= 0) {  // 筛选 1500-2000
-                bool x1_valid = x1 >= 1500 && x1 <= 2000;
-                bool x2_valid = x2 >= 1500 && x2 <= 2000;
+                bool x1_valid = x1 >= 1.5 && x1 <= 2;
+                bool x2_valid = x2 >= 1.5 && x2 <= 2;
                 if (x1_valid && x2_valid) valid_pwm = x1;
                 else if (x1_valid) valid_pwm = x1;
                 else if (x2_valid) valid_pwm = x2;
             } else {  // 筛选 1000-1500
-                bool x1_valid = x1 >= 1000 && x1 <= 1500;
-                bool x2_valid = x2 >= 1000 && x2 <= 1500;
+                bool x1_valid = x1 >= 1 && x1 <= 1.5;
+                bool x2_valid = x2 >= 1 && x2 <= 1.5;
                 if (x1_valid && x2_valid) valid_pwm = x1;
                 else if (x1_valid) valid_pwm = x1;
                 else if (x2_valid) valid_pwm = x2;
             }
 
-            pwm_output[i] = valid_pwm;
+            pwm_output[i] = 2.f * valid_pwm - 3.f;
         } else {
             pwm_output[i] = 0.0f;  // 无解时赋默认值
         }
     }
+
     return pwm_output;
 }
 
-void power_dis_UUV6::Vector2array(const Eigen::Vector<float, 6> &input, float *output)
+void power_dis_UUV6::Vector2array(const Eigen::Matrix<float, 6, 1> &input, float *output)
 {
     for (int i = 0; i < input.size(); ++i) {
         output[i] = input[i];
     }
+}
+
+power_dis_UUV6::power_dis_UUV6()
+{
+    _dis_matrix <<
+    0.707,   0.707,  -0.707,  -0.707,   0,       0,
+    -0.707,  0.707,  -0.707,   0.707,   0,       0,
+    0,       0,       0,       0,      -1,       1,
+    0.06,  -0.06,    0.06,   -0.06,  -0.111,  -0.111,
+    0.06,    0.06,   -0.06,   -0.06,    0,       0,
+    -0.1888, 0.1888,  0.1888, -0.1888,   0,       0;
+    //if (_dis_matrix.rows() == _dis_matrix.cols()) {
+        // 方阵求逆
+       // _dis_matrix_inv = _dis_matrix.inverse();
+    //} else {
+        // 非方阵求伪逆
+        _dis_matrix_inv = _dis_matrix.completeOrthogonalDecomposition().pseudoInverse();
+    //}
 }
