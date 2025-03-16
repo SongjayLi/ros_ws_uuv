@@ -4,6 +4,12 @@ Eigen::Matrix<float, 6, 1> power_dis_UUV6::virtual2real_force(const Eigen::Matri
 {
     Eigen::Matrix<float, 6, 1> real_input;
     real_input = _dis_matrix_inv * virtual_input;
+    const float threshold = 1e-5; 
+    for (int i = 0; i < real_input.size(); ++i) {
+        if (std::abs(real_input[i]) < threshold) {
+            real_input[i] = 0;
+        }
+    }
     return real_input;
 }
 
@@ -19,11 +25,11 @@ Eigen::Matrix<float, 6 ,1> power_dis_UUV6::force2pwm(const Eigen::Matrix<float, 
         float U = battery_voltage;
         float a = 0.0f, b = 0.0f, c = 0.0f;
 
-        if (T >= 0) {  // 对应 X≥1500, T≥0 的情况
+        if (T >= 0) {  // 对应 X≥1.5, T≥0 的情况
             a = 0.2697 * U * U - 5.3427 * U + 37.0661;
             b = -0.9432 * U * U + 19.8613 * U - 132.3692;
-            c = 0.8143 * U * U -132.3692 * U + -132.3692 - T;
-        } else {  // 对应 X<1500, T≤0 的情况
+            c = 0.8143 * U * U -17.9403 * U + 116.0216 - T;
+        } else {  // 对应 X<1.5, T≤0 的情况
             a = -0.1345 * U * U + 2.4266 * U - 18.709;
             b = 0.3242 * U * U - 4.8592 * U + 42.975;
             c = -0.1875 * U * U + 1.9342 * U - 22.8845 - T;
@@ -36,24 +42,29 @@ Eigen::Matrix<float, 6 ,1> power_dis_UUV6::force2pwm(const Eigen::Matrix<float, 
             float x1 = (-b + sqrt_disc) / (2 * a);
             float x2 = (-b - sqrt_disc) / (2 * a);
             float valid_pwm = 0.0f;
-
-            if (T >= 0) {  // 筛选 1500-2000
+            //std::cout<<x1<<','<<x2<<std::endl;
+            if (T > 0) {  // 筛选 1500-2000
                 bool x1_valid = x1 >= 1.5 && x1 <= 2;
                 bool x2_valid = x2 >= 1.5 && x2 <= 2;
                 if (x1_valid && x2_valid) valid_pwm = x1;
                 else if (x1_valid) valid_pwm = x1;
                 else if (x2_valid) valid_pwm = x2;
-            } else {  // 筛选 1000-1500
+            } else if(T < 0) {  // 筛选 1000-1500
                 bool x1_valid = x1 >= 1 && x1 <= 1.5;
                 bool x2_valid = x2 >= 1 && x2 <= 1.5;
                 if (x1_valid && x2_valid) valid_pwm = x1;
                 else if (x1_valid) valid_pwm = x1;
                 else if (x2_valid) valid_pwm = x2;
+            } else{
+                valid_pwm = 1.5f;
             }
 
-            pwm_output[i] = 2.f * valid_pwm - 3.f;
+            pwm_output[i] = valid_pwm  * 2 - 3.f;
+            if (pwm_output[i] == 0) {
+                pwm_output[i] = std::nanf("");
+            }
         } else {
-            pwm_output[i] = 0.0f;  // 无解时赋默认值
+            pwm_output[i] = std::nanf("");  // 无解时赋默认值
         }
     }
 

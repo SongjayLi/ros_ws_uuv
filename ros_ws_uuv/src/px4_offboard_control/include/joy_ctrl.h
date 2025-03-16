@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <Eigen/Dense>
+#include <iostream>
 
 #include "power_distribution.h"
 
@@ -19,7 +20,7 @@ class joy_ctrl:public rclcpp::Node
 {
     private:
 
-        float _battery_voltage{0.0f};
+        float _battery_voltage{14.0f};
         float _ctrl_input[8]{0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f,0.0f} ;
         bool _input_update{false};
         float _T_min{0.0f};
@@ -55,7 +56,7 @@ class joy_ctrl:public rclcpp::Node
         
             ActuatorMotors_pub_ = this->create_publisher<px4_msgs::msg::ActuatorMotors>("fmu/in/actuator_motors", 10);
         
-            Timer_Control_ = this->create_wall_timer(50ms, std::bind(&joy_ctrl::Timer_Control_callback, this));
+            Timer_Control_ = this->create_wall_timer(20ms, std::bind(&joy_ctrl::Timer_Control_callback, this));
         }
         ~joy_ctrl(){};
 };
