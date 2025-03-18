@@ -24,7 +24,8 @@ void joy_ctrl::joy_ctrl_callback(const sensor_msgs::msg::Joy::SharedPtr msg)
  * It checks if the sample time has changed since the last callback. If it has,
  * it publishes the current control inputs. If not, it publishes a default setpoint.
  */
-void joy_ctrl::timer_callback_manual_control_setpoint()
+/*
+ void joy_ctrl::timer_callback_manual_control_setpoint()
 {
     // Check if the sample time has changed since the last callback
     if(m_sample_time == m_sample_time_old){
@@ -48,7 +49,7 @@ void joy_ctrl::timer_callback_manual_control_setpoint()
     //m_ManualControlSetpoint.throttle = (m_Ctrl_input[1]+1)/2;
     //m_ManualControlSetpoint.sticks_moving = m_sticks_moving;
     //this->manual_control_setpoint_pub_->publish(m_ManualControlSetpoint);
-}
+}*/
 
 void joy_ctrl::timer_callback_offboard_control()
 {
@@ -76,9 +77,18 @@ void joy_ctrl::timer_callback_offboard_control()
     //}
 }
 
+void joy_ctrl::timer_callback_diff_time()
+{
+    if(m_time_ROV >= m_time_ctrl){
+        m_time_diff = m_time_ROV - m_time_ctrl;
+    }else{m_time_diff = -(m_time_ctrl - m_time_ROV);}
+    m_MainWindows->Update_time(m_time_ROV,m_time_diff);
+}
+
 void joy_ctrl::ActuatorMotors_callback(const px4_msgs::msg::ActuatorMotors::SharedPtr msg)
 {
     m_MainWindows->Update_actuator(msg->control);
+    m_time_ctrl = msg->timestamp;
 }
 
 void joy_ctrl::sensor_combine_callback(const px4_msgs::msg::SensorCombined::SharedPtr msg)
@@ -106,6 +116,7 @@ void joy_ctrl::vehicle_attitude_callback(const px4_msgs::msg::VehicleAttitude::S
     matrix::Eulerf euler(q);
     m_list_att.push_back(DataWithTimestamp(euler(0),euler(1),euler(2),0,msg->timestamp));
     m_q_now = q;
+    m_time_ROV = msg->timestamp;
 }
 
 void joy_ctrl::publish_manual_control_setpoint(uint8_t data_source, float roll, float pitch, float yaw, float throttle, bool sticks_moving)
@@ -131,7 +142,7 @@ void joy_ctrl::publish_offboard_control_mode() // 发布板外控制的具体实
     msg.acceleration = false;
     msg.attitude = false;
     msg.body_rate = false;
-    msg.thrust_and_torque = true;
+    msg.thrust_and_torque = false;
     msg.direct_actuator = true;
     msg.timestamp = this->get_clock()->now().nanoseconds() / 1000;
     offboard_control_mode_pub_->publish(msg);
@@ -221,7 +232,8 @@ joy_ctrl::joy_ctrl(std::string name) : Node(name)
         std::bind(&joy_ctrl::ActuatorMotors_callback,this,_1)
     );
 
-    timer_manual_control_setpoint = this->create_wall_timer(50ms, std::bind(&joy_ctrl::timer_callback_manual_control_setpoint,this));
+    timer_diff_time = this->create_wall_timer(100ms,std::bind(&joy_ctrl::timer_callback_diff_time,this));
+    //timer_manual_control_setpoint = this->create_wall_timer(50ms, std::bind(&joy_ctrl::timer_callback_manual_control_setpoint,this));
     m_MainWindows = std::make_shared<MainWindow>(nullptr, this);
     m_MainWindows->init_first();
     m_MainWindows->show();
@@ -239,8 +251,8 @@ void joy_ctrl::start_offboard_control()
 void joy_ctrl::stop_offboard_control()
 {
     if (timer_offboard_control_mode) {
-        this->disarm();
         timer_offboard_control_mode->cancel();
+        this->disarm();
         m_offboard_setpoint_counter = 0;
     }
 }

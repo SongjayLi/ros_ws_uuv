@@ -38,6 +38,7 @@ public:
     MainWindow(QWidget *parent = nullptr,joy_ctrl *joy_ctrl = nullptr);
     ~MainWindow();
     void Update_input_num(_Float32* num);
+    void Update_time(uint64_t &time_rov,int64_t &time_diff);
     void Update_actuator(std::array<float, 12UL> num);
     void init_first();
 

@@ -34,8 +34,9 @@ private:
 
     void joy_ctrl_callback(const sensor_msgs::msg::Joy::SharedPtr msg);
 
-    void timer_callback_manual_control_setpoint();
+    //void timer_callback_manual_control_setpoint();
     void timer_callback_offboard_control();
+    void timer_callback_diff_time();
 
     void ActuatorMotors_callback(const px4_msgs::msg::ActuatorMotors::SharedPtr msg);
     void sensor_combine_callback(const px4_msgs::msg::SensorCombined::SharedPtr msg);
@@ -59,8 +60,9 @@ private:
 	//rclcpp::Publisher<px4_msgs::msg::TrajectorySetpoint>::SharedPtr trajectory_setpoint_pub_;
 	rclcpp::Publisher<px4_msgs::msg::VehicleCommand>::SharedPtr vehicle_command_pub_;
 
-    rclcpp::TimerBase::SharedPtr timer_manual_control_setpoint;
+    //rclcpp::TimerBase::SharedPtr timer_manual_control_setpoint;
     rclcpp::TimerBase::SharedPtr timer_offboard_control_mode;
+    rclcpp::TimerBase::SharedPtr timer_diff_time;
 
     std::shared_ptr<MainWindow> m_MainWindows;
 
@@ -68,6 +70,10 @@ private:
 	void disarm();//使用命令取消解锁机器人
 
     uint8_t m_offboard_setpoint_counter = 0;
+
+    uint64_t m_time_ROV{0};
+    uint64_t m_time_ctrl{0};
+    int64_t m_time_diff{0};
 
 public:
 

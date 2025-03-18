@@ -326,6 +326,11 @@ void MainWindow::Update_input_num(_Float32* num)
     ui->label_roll->setNum(-num[3]);
 }
 
+void MainWindow::Update_time(uint64_t &time_rov, int64_t &time_diff){
+    ui->time_rov->setNum(static_cast<double>(time_rov) / 1000000.0);
+    ui->time_diff->setNum(static_cast<double>(time_diff) / 1000000.0);
+}
+
 void MainWindow::Update_actuator(std::array<float, 12UL> num)
 {
     ui->label_motor1->setNum(num[0]);
