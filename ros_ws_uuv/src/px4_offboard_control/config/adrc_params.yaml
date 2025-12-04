@@ -1,0 +1,30 @@
+normal_ctrl_node:
+  ros__parameters:
+    # 控制周期 (与 wall_timer 保持一致)
+    control_dt: 0.02
+
+    # 选择是否启用 ADRC
+    use_adrc_roll: true
+    use_adrc_yaw:  true
+
+    # ---------- Roll ADRC ----------
+    adrc_roll_b0:      3.0
+    adrc_roll_td_r:    20.0
+    adrc_roll_td_zeta: 1.0
+    adrc_roll_omega_o: 40.0
+    adrc_roll_omega_c: 10.0
+    adrc_roll_zeta_c:  0.9
+    adrc_roll_u_min:  -3.0
+    adrc_roll_u_max:   3.0
+    adrc_roll_dead_zone: 0.0
+
+    # ---------- Yaw ADRC ----------
+    adrc_yaw_b0:      2.0
+    adrc_yaw_td_r:    20.0
+    adrc_yaw_td_zeta: 1.0
+    adrc_yaw_omega_o: 35.0
+    adrc_yaw_omega_c: 8.0
+    adrc_yaw_zeta_c:  0.9
+    adrc_yaw_u_min:  -4.0
+    adrc_yaw_u_max:   4.0
+    adrc_yaw_dead_zone: 0.0
